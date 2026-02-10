@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI Style Comparison - Zelto Labs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #0f0f1a;
+            color: #fff;
+            min-height: 100vh;
+            padding: 3rem;
+        }
+
+        h1 {
+            font-family: 'Sora', sans-serif;
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #888;
+            margin-bottom: 4rem;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .style-section {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .style-title {
+            text-align: center;
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: 'Sora', sans-serif;
+            font-weight: 600;
+            font-size: 1.25rem;
+        }
+
+        .style-description {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #aaa;
+            line-height: 1.6;
+        }
+
+        /* ====================== */
+        /* 1. GLASSMORPHISM STYLE */
+        /* ====================== */
+        .glass-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 24px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+            animation: glassShine 8s ease-in-out infinite;
+        }
+
+        @keyframes glassShine {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(20%, 20%); }
+        }
+
+        .glass-title {
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .glass-card h3 {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .glass-card p {
+            color: rgba(255,255,255,0.8);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .glass-btn {
+            display: inline-block;
+            padding: 0.875rem 1.75rem;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 12px;
+            color: #fff;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .glass-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .glass-input {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            color: #fff;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            outline: none;
+        }
+
+        .glass-input::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .glass-input:focus {
+            border-color: rgba(255,255,255,0.5);
+            background: rgba(255,255,255,0.15);
+        }
+
+        /* ====================== */
+        /* 2. BENTO GRID STYLE    */
+        /* ====================== */
+        .bento-section {
+            background: #000;
+            border-radius: 24px;
+            padding: 1.5rem;
+        }
+
+        .bento-title {
+            background: #1a1a1a;
+            color: #fff;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(3, auto);
+            gap: 1rem;
+        }
+
+        .bento-card {
+            background: #1a1a1a;
+            border-radius: 20px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .bento-card:hover {
+            background: #222;
+            transform: scale(1.02);
+        }
+
+        .bento-card.large {
+            grid-column: span 2;
+        }
+
+        .bento-card.featured {
+            background: linear-gradient(135deg, #2a2a3a 0%, #1a1a2a 100%);
+            border: 1px solid #333;
+        }
+
+        .bento-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #5e5ce6 0%, #bf5af2 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .bento-card h3 {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .bento-card p {
+            font-size: 0.85rem;
+            color: #888;
+            line-height: 1.5;
+        }
+
+        .bento-btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: #fff;
+            color: #000;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .bento-btn:hover {
+            background: #5e5ce6;
+            color: #fff;
+        }
+
+        /* ====================== */
+        /* 3. NEUMORPHISM STYLE   */
+        /* ====================== */
+        .neu-section {
+            background: #e0e5ec;
+            border-radius: 24px;
+            padding: 2rem;
+        }
+
+        .neu-title {
+            background: #e0e5ec;
+            color: #444;
+            box-shadow: 6px 6px 12px #b8bec7, -6px -6px 12px #ffffff;
+        }
+
+        .neu-card {
+            background: #e0e5ec;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 8px 8px 16px #b8bec7, -8px -8px 16px #ffffff;
+        }
+
+        .neu-card h3 {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .neu-card p {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .neu-btn {
+            display: inline-block;
+            padding: 0.875rem 1.75rem;
+            background: #e0e5ec;
+            border: none;
+            border-radius: 12px;
+            color: #5e5ce6;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 6px 6px 12px #b8bec7, -6px -6px 12px #ffffff;
+            transition: all 0.2s ease;
+        }
+
+        .neu-btn:hover {
+            box-shadow: 4px 4px 8px #b8bec7, -4px -4px 8px #ffffff;
+        }
+
+        .neu-btn:active {
+            box-shadow: inset 4px 4px 8px #b8bec7, inset -4px -4px 8px #ffffff;
+        }
+
+        .neu-input {
+            width: 100%;
+            padding: 1rem;
+            background: #e0e5ec;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            color: #333;
+            margin-bottom: 1rem;
+            outline: none;
+            box-shadow: inset 4px 4px 8px #b8bec7, inset -4px -4px 8px #ffffff;
+        }
+
+        .neu-input::placeholder {
+            color: #999;
+        }
+
+        .neu-input:focus {
+            box-shadow: inset 6px 6px 12px #b8bec7, inset -6px -6px 12px #ffffff;
+        }
+
+        /* Feature list */
+        .features {
+            margin-top: 4rem;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features h2 {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .feature-item {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 2rem;
+        }
+
+        .feature-item h3 {
+            font-family: 'Sora', sans-serif;
+            color: #fff;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .feature-item ul {
+            list-style: none;
+            color: #888;
+            font-size: 0.9rem;
+            line-height: 2;
+        }
+
+        .feature-item li::before {
+            content: '→ ';
+            color: #5e5ce6;
+        }
+
+        @media (max-width: 1100px) {
+            .comparison-grid {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>UI Style Comparison</h1>
+    <p class="subtitle">Zelto Labs 랜딩 페이지에 적용할 스타일을 선택하세요</p>
+
+    <div class="comparison-grid">
+        <!-- 1. Glassmorphism -->
+        <div class="style-section">
+            <div class="style-title glass-title">1. Glassmorphism</div>
+            <p class="style-description">유리처럼 투명한 배경과 블러 효과.<br>모던하고 세련된 느낌.</p>
+            <div class="glass-section">
+                <div class="glass-card">
+                    <h3>Connecting People</h3>
+                    <p>Zelto Labs builds platforms that solve everyday problems and bring joy to daily life.</p>
+                    <input type="text" class="glass-input" placeholder="Your email">
+                    <button class="glass-btn">Get Started</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Bento Grid -->
+        <div class="style-section">
+            <div class="style-title bento-title">2. Bento Grid</div>
+            <p class="style-description">Apple 스타일의 그리드 레이아웃.<br>깔끔하고 정돈된 느낌.</p>
+            <div class="bento-section">
+                <div class="bento-grid">
+                    <div class="bento-card large featured">
+                        <h3>Connecting People Through Software</h3>
+                        <p>Platforms that solve everyday problems and bring joy to daily life.</p>
+                        <button class="bento-btn">Discover More</button>
+                    </div>
+                    <div class="bento-card">
+                        <div class="bento-icon">👤</div>
+                        <h3>Human First</h3>
+                        <p>We build for people, not complexity.</p>
+                    </div>
+                    <div class="bento-card">
+                        <div class="bento-icon">✨</div>
+                        <h3>Simple Design</h3>
+                        <p>Less friction, more flow.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Neumorphism -->
+        <div class="style-section">
+            <div class="style-title neu-title">3. Neumorphism</div>
+            <p class="style-description">부드러운 그림자로 입체감 표현.<br>따뜻하고 촉각적인 느낌.</p>
+            <div class="neu-section">
+                <div class="neu-card">
+                    <h3>Connecting People</h3>
+                    <p>Zelto Labs builds platforms that solve everyday problems and bring joy to daily life.</p>
+                    <input type="text" class="neu-input" placeholder="Your email">
+                    <button class="neu-btn">Get Started</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="features">
+        <h2>각 스타일의 특징</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <h3>Glassmorphism</h3>
+                <ul>
+                    <li>반투명 배경 + blur 효과</li>
+                    <li>그라데이션 배경과 잘 어울림</li>
+                    <li>고급스럽고 미래지향적</li>
+                    <li>iOS/macOS 스타일</li>
+                    <li>Tech/SaaS 기업에 적합</li>
+                </ul>
+            </div>
+            <div class="feature-item">
+                <h3>Bento Grid</h3>
+                <ul>
+                    <li>Apple 스타일 카드 레이아웃</li>
+                    <li>다양한 크기의 카드 조합</li>
+                    <li>정보를 한눈에 정리</li>
+                    <li>다크 테마와 잘 어울림</li>
+                    <li>포트폴리오/제품 소개에 적합</li>
+                </ul>
+            </div>
+            <div class="feature-item">
+                <h3>Neumorphism</h3>
+                <ul>
+                    <li>부드러운 내/외부 그림자</li>
+                    <li>촉각적이고 따뜻한 느낌</li>
+                    <li>밝은 배경에서 효과적</li>
+                    <li>버튼/입력 필드에 적합</li>
+                    <li>헬스케어/웰니스에 적합</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
