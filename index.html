@@ -747,6 +747,235 @@
             color: var(--text-primary);
         }
 
+        /* AI Native Section */
+        .ai-native {
+            padding: var(--section-spacing) 0;
+        }
+
+        .ai-philosophy {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-xl);
+            padding: clamp(3rem, 6vw, 5rem);
+            margin-bottom: 4rem;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 3rem;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ai-philosophy::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.15), transparent);
+        }
+
+        .ai-philosophy h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.2;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.25rem;
+        }
+
+        .ai-philosophy-desc {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.75;
+        }
+
+        .ai-pillars {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .ai-pillar {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.25rem;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .ai-pillar:hover {
+            border-color: var(--border);
+            background: var(--accent-light);
+        }
+
+        .ai-pillar-num {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--accent);
+            background: var(--accent-light);
+            padding: 0.2rem 0.5rem;
+            border-radius: 6px;
+            flex-shrink: 0;
+        }
+
+        .ai-pillar-text {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .ai-services-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .ai-services-header h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.03em;
+        }
+
+        .ai-services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+        }
+
+        .ai-service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 2.25rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .ai-service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gradient-1), var(--gradient-3));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .ai-service-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--border);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+        }
+
+        .ai-service-card:hover::before {
+            opacity: 1;
+        }
+
+        .ai-service-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 14px;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .ai-service-icon svg {
+            width: 26px;
+            height: 26px;
+        }
+
+        .ai-icon-agent { background: linear-gradient(135deg, #6366f1, #818cf8); }
+        .ai-icon-product { background: linear-gradient(135deg, #22c55e, #4ade80); }
+        .ai-icon-consulting { background: linear-gradient(135deg, #f59e0b, #fbbf24); }
+        .ai-icon-infra { background: linear-gradient(135deg, #06b6d4, #22d3ee); }
+
+        .ai-service-tag {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent);
+            background: var(--accent-light);
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+        }
+
+        .ai-tag-green {
+            color: #059669;
+            background: rgba(34, 197, 94, 0.08);
+        }
+
+        .ai-tag-amber {
+            color: #d97706;
+            background: rgba(245, 158, 11, 0.08);
+        }
+
+        .ai-tag-cyan {
+            color: #0891b2;
+            background: rgba(6, 182, 212, 0.08);
+        }
+
+        .ai-service-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.01em;
+        }
+
+        .ai-service-card p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            margin-bottom: 1.25rem;
+        }
+
+        .ai-service-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .ai-service-list li {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .ai-service-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 4px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 50%;
+            transform: translateY(-50%);
+        }
+
         /* Values Section - Bento Grid */
         .values {
             padding: var(--section-spacing) 0;
@@ -1143,6 +1372,14 @@
 
             .about-visual { order: -1; }
 
+            .ai-philosophy {
+                grid-template-columns: 1fr;
+            }
+
+            .ai-services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
             .bento-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -1191,6 +1428,10 @@
 
             .bento-card:nth-child(1),
             .bento-card:nth-child(5) { grid-column: span 1; }
+
+            .ai-services-grid {
+                grid-template-columns: 1fr;
+            }
 
             .form-row { grid-template-columns: 1fr; }
 
@@ -1253,6 +1494,7 @@
             </a>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
+                <li><a href="#ai-native">AI Native</a></li>
                 <li><a href="#values">Values</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -1273,6 +1515,7 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <a href="#about">About</a>
+        <a href="#ai-native">AI Native</a>
         <a href="#values">Values</a>
         <a href="#contact" class="mobile-cta">Get in Touch</a>
     </div>
@@ -1282,13 +1525,13 @@
         <div class="container">
             <div class="hero-grid">
                 <div class="hero-content">
-                    <div class="hero-badge">Link Life</div>
-                    <h1>Connecting People Through <span class="gradient-text">Software</span></h1>
-                    <p class="hero-subtitle">We build platforms that solve everyday problems and bring joy to daily
-                        life. Technology that feels effortless and human.</p>
+                    <div class="hero-badge">AI Native Company</div>
+                    <h1>Connecting People Through <span class="gradient-text">AI-Powered Software</span></h1>
+                    <p class="hero-subtitle">We are an AI Native company that builds intelligent platforms to solve
+                        everyday problems. Technology that thinks, adapts, and connects.</p>
                     <div class="hero-cta">
-                        <a href="#about" class="btn btn-primary">
-                            Discover More
+                        <a href="#ai-native" class="btn btn-primary">
+                            What We Do
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2">
                                 <path d="M5 12h14M12 5l7 7-7 7" />
@@ -1369,6 +1612,122 @@
                 <div class="mission-vision reveal reveal-delay-2">
                     <span class="label">Vision</span>
                     <span class="text">A world where technology makes human connection effortless.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Native Section -->
+    <section class="ai-native" id="ai-native">
+        <div class="container">
+            <!-- Philosophy -->
+            <div class="ai-philosophy reveal">
+                <div class="ai-philosophy-content">
+                    <p class="section-label">AI Native</p>
+                    <h2>We don't just use AI.<br>We <span class="gradient-text">build with</span> AI.</h2>
+                    <p class="ai-philosophy-desc">At Zelto Labs, AI isn't a feature we bolt on. It's the foundation of
+                        everything we create. From ideation to deployment, AI is woven into our process, our products,
+                        and our culture.</p>
+                </div>
+                <div class="ai-pillars">
+                    <div class="ai-pillar">
+                        <span class="ai-pillar-num">01</span>
+                        <span class="ai-pillar-text">AI-first architecture in every product</span>
+                    </div>
+                    <div class="ai-pillar">
+                        <span class="ai-pillar-num">02</span>
+                        <span class="ai-pillar-text">Human-in-the-loop, not human-out-of-the-loop</span>
+                    </div>
+                    <div class="ai-pillar">
+                        <span class="ai-pillar-num">03</span>
+                        <span class="ai-pillar-text">Responsible AI with transparency and trust</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Services Grid -->
+            <div class="ai-services-header">
+                <p class="section-label reveal">What We Do</p>
+                <h2 class="reveal reveal-delay-1">Our AI Capabilities</h2>
+            </div>
+            <div class="ai-services-grid">
+                <div class="ai-service-card reveal reveal-delay-1">
+                    <div class="ai-service-icon ai-icon-agent">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                            <path d="M12 2a4 4 0 0 1 4 4v2a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z" />
+                            <path d="M18 14c2 1 3 3 3 5v2H3v-2c0-2 1-4 3-5" />
+                            <circle cx="12" cy="5" r="1" fill="currentColor" stroke="none" />
+                            <path d="M9 22v-2a3 3 0 0 1 6 0v2" />
+                        </svg>
+                    </div>
+                    <div class="ai-service-tag">Agent</div>
+                    <h3>AI Agent Development</h3>
+                    <p>LLM-powered autonomous agents that understand context, make decisions, and execute complex
+                        workflows on behalf of your users.</p>
+                    <ul class="ai-service-list">
+                        <li>Custom AI Assistants</li>
+                        <li>Workflow Automation Agents</li>
+                        <li>Multi-Agent Orchestration</li>
+                        <li>Tool-Use & Function Calling</li>
+                    </ul>
+                </div>
+                <div class="ai-service-card reveal reveal-delay-2">
+                    <div class="ai-service-icon ai-icon-product">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                            <rect x="3" y="3" width="18" height="18" rx="3" />
+                            <path d="M9 9h6M9 13h4" />
+                            <circle cx="17" cy="17" r="2" />
+                            <path d="M15 15l4 4" />
+                        </svg>
+                    </div>
+                    <div class="ai-service-tag ai-tag-green">Product</div>
+                    <h3>AI Products & Platforms</h3>
+                    <p>End-to-end AI-native products that deliver real value, from intelligent chatbots
+                        to recommendation engines and beyond.</p>
+                    <ul class="ai-service-list">
+                        <li>RAG Systems & Knowledge Bases</li>
+                        <li>AI Chatbots & Copilots</li>
+                        <li>Recommendation Engines</li>
+                        <li>AI-first SaaS Products</li>
+                    </ul>
+                </div>
+                <div class="ai-service-card reveal reveal-delay-3">
+                    <div class="ai-service-icon ai-icon-consulting">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                            <path d="M2 12h4l3-9 6 18 3-9h4" />
+                        </svg>
+                    </div>
+                    <div class="ai-service-tag ai-tag-amber">Strategy</div>
+                    <h3>AI Consulting & Strategy</h3>
+                    <p>Strategic guidance to help organizations adopt AI effectively, from identifying
+                        opportunities to building transformation roadmaps.</p>
+                    <ul class="ai-service-list">
+                        <li>AI Adoption Strategy</li>
+                        <li>Process Automation Assessment</li>
+                        <li>AI Transformation Roadmap</li>
+                        <li>ROI Analysis & Benchmarking</li>
+                    </ul>
+                </div>
+                <div class="ai-service-card reveal reveal-delay-4">
+                    <div class="ai-service-icon ai-icon-infra">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                            <rect x="2" y="2" width="8" height="8" rx="2" />
+                            <rect x="14" y="2" width="8" height="8" rx="2" />
+                            <rect x="2" y="14" width="8" height="8" rx="2" />
+                            <rect x="14" y="14" width="8" height="8" rx="2" />
+                            <path d="M10 6h4M6 10v4M18 10v4M10 18h4" />
+                        </svg>
+                    </div>
+                    <div class="ai-service-tag ai-tag-cyan">Infra</div>
+                    <h3>AI Infrastructure & MLOps</h3>
+                    <p>Production-grade AI infrastructure that scales, from model fine-tuning pipelines to
+                        robust deployment and monitoring systems.</p>
+                    <ul class="ai-service-list">
+                        <li>Model Fine-tuning & Training</li>
+                        <li>ML Pipeline & Deployment</li>
+                        <li>Prompt Engineering Systems</li>
+                        <li>Monitoring & Evaluation</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -1495,6 +1854,7 @@
                 </div>
                 <div class="footer-nav">
                     <a href="#about">About</a>
+                    <a href="#ai-native">AI Native</a>
                     <a href="#values">Values</a>
                     <a href="#contact">Contact</a>
                     <!-- LinkedIn -->
