@@ -976,6 +976,347 @@
             transform: translateY(-50%);
         }
 
+        /* Products Section */
+        .products {
+            padding: var(--section-spacing) 0;
+        }
+
+        .products-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .products-header h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.03em;
+        }
+
+        .product-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gradient-1), var(--cta), var(--gradient-3));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .product-card:hover {
+            border-color: var(--border);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            transform: translateY(-4px);
+        }
+
+        .product-card:hover::before {
+            opacity: 1;
+        }
+
+        .product-card-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+
+        .product-preview {
+            background: linear-gradient(135deg, #f0f0ff 0%, #e8f5e9 50%, #f0f0ff 100%);
+            padding: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-preview::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .product-browser {
+            width: 100%;
+            max-width: 400px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+        }
+
+        .product-browser-bar {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 14px;
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .browser-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .browser-dot:nth-child(1) { background: #ff5f57; }
+        .browser-dot:nth-child(2) { background: #febc2e; }
+        .browser-dot:nth-child(3) { background: #28c840; }
+
+        .browser-url {
+            flex: 1;
+            margin-left: 8px;
+            padding: 4px 10px;
+            background: var(--bg-card);
+            border-radius: 6px;
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .product-browser-content {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .product-browser-content .product-app-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--gradient-1), var(--cta));
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: #fff;
+        }
+
+        .product-browser-content .product-app-icon svg {
+            width: 26px;
+            height: 26px;
+        }
+
+        .product-browser-content h4 {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-browser-content p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .product-browser-skeleton {
+            margin-top: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .skeleton-line {
+            height: 8px;
+            background: var(--bg-surface);
+            border-radius: 4px;
+        }
+
+        .skeleton-line:nth-child(1) { width: 100%; }
+        .skeleton-line:nth-child(2) { width: 85%; }
+        .skeleton-line:nth-child(3) { width: 60%; }
+
+        .product-info {
+            padding: clamp(2.5rem, 5vw, 4rem);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .product-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .product-status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.25rem 0.75rem;
+            background: rgba(34, 197, 94, 0.08);
+            border: 1px solid rgba(34, 197, 94, 0.15);
+            border-radius: 100px;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: #059669;
+        }
+
+        .product-status-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--cta);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+            box-shadow: 0 0 6px rgba(34, 197, 94, 0.4);
+        }
+
+        .product-tag {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent);
+            background: var(--accent-light);
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            margin-left: 0.5rem;
+        }
+
+        .product-info h3 {
+            font-family: var(--font-heading);
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .product-info > p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.75;
+            margin-bottom: 1.75rem;
+        }
+
+        .product-features {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .product-features li {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.35rem 0.85rem;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            transition: all 0.2s ease;
+        }
+
+        .product-features li:hover {
+            border-color: var(--border);
+            background: var(--accent-light);
+            color: var(--accent);
+        }
+
+        .product-features li::before {
+            content: '';
+            width: 4px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .product-cta {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .btn-visit {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--accent);
+            color: #fff;
+            font-family: var(--font-main);
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-visit:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-visit svg {
+            width: 14px;
+            height: 14px;
+            transition: transform 0.2s ease;
+        }
+
+        .btn-visit:hover svg {
+            transform: translateX(2px);
+        }
+
+        @media (max-width: 1024px) {
+            .product-card-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .product-preview {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .product-preview {
+                padding: 1.5rem;
+            }
+
+            .product-info {
+                padding: 2rem;
+            }
+
+            .product-cta {
+                flex-direction: column;
+            }
+
+            .btn-visit {
+                justify-content: center;
+            }
+        }
+
         /* Values Section - Bento Grid */
         .values {
             padding: var(--section-spacing) 0;
@@ -1495,6 +1836,7 @@
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#ai-native">AI Native</a></li>
+                <li><a href="#products">Products</a></li>
                 <li><a href="#values">Values</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -1516,6 +1858,7 @@
     <div class="mobile-menu" id="mobileMenu">
         <a href="#about">About</a>
         <a href="#ai-native">AI Native</a>
+        <a href="#products">Products</a>
         <a href="#values">Values</a>
         <a href="#contact" class="mobile-cta">Get in Touch</a>
     </div>
@@ -1733,6 +2076,69 @@
         </div>
     </section>
 
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="products-header">
+                <p class="section-label reveal">What We Build</p>
+                <h2 class="reveal reveal-delay-1">Our Products</h2>
+            </div>
+            <div class="product-card reveal reveal-delay-2">
+                <div class="product-card-inner">
+                    <div class="product-preview">
+                        <div class="product-browser">
+                            <div class="product-browser-bar">
+                                <div class="browser-dot"></div>
+                                <div class="browser-dot"></div>
+                                <div class="browser-dot"></div>
+                                <div class="browser-url">crowdly-three.vercel.app</div>
+                            </div>
+                            <div class="product-browser-content">
+                                <div class="product-app-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                        <circle cx="9" cy="7" r="4" />
+                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                                    </svg>
+                                </div>
+                                <h4>Crowdly</h4>
+                                <p>AI-Powered Community Platform</p>
+                                <div class="product-browser-skeleton">
+                                    <div class="skeleton-line"></div>
+                                    <div class="skeleton-line"></div>
+                                    <div class="skeleton-line"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-status">
+                            <span class="product-status-badge">Live</span>
+                            <span class="product-tag">Community</span>
+                        </div>
+                        <h3>Crowdly</h3>
+                        <p>AI 기술을 활용한 차세대 커뮤니티 플랫폼. 사람들을 더 스마트하게 연결하고, 의미 있는 대화와 협업을 이끌어냅니다.</p>
+                        <ul class="product-features">
+                            <li>AI-Powered Matching</li>
+                            <li>Smart Community</li>
+                            <li>Real-time Collaboration</li>
+                            <li>Intelligent Feed</li>
+                        </ul>
+                        <div class="product-cta">
+                            <a href="https://crowdly-three.vercel.app/" class="btn-visit" target="_blank" rel="noopener noreferrer">
+                                Visit Crowdly
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <path d="M7 17L17 7M17 7H7M17 7v10" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Values Section - Bento Grid -->
     <section class="values" id="values">
         <div class="container">
@@ -1855,6 +2261,7 @@
                 <div class="footer-nav">
                     <a href="#about">About</a>
                     <a href="#ai-native">AI Native</a>
+                    <a href="#products">Products</a>
                     <a href="#values">Values</a>
                     <a href="#contact">Contact</a>
                     <!-- LinkedIn -->
